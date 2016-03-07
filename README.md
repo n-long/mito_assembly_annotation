@@ -1,4 +1,4 @@
-####Pipeline for mitochondrial sequencing reads. Performs quality trimming and filtering, de novo assembly, and gene annotations in GFF3 and FASTA format.
+####Pipeline for mitochondrial sequencing reads. Performs quality trimming and filtering, de novo assembly, and gene (protein-coding, tRNA, rRNA) annotations in GFF3 and FASTA format.
 
 ######Prerequisites:  
 [Python 2.7](https://www.python.org/download/releases/2.7/)  
@@ -38,3 +38,7 @@ Output filenames will match input files. Assembled mitochondrial genome will hav
 ####Parallelized version -- coming soon!
 
 Script contains most of the code to get working, however priority is low until thesis is written.
+
+#####tRNA and rRNA databases come from the published MITOS datasets
+
+Bernt, M., Donath, A., Jühling, F., Externbrink, F., Florentz, C., Fritzsch, G., ... & Stadler, P. F. (2013). MITOS: Improved de novo metazoan mitochondrial genome annotation. Molecular phylogenetics and evolution, 69(2), 313-319.

@@ -33,7 +33,7 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 `python mito_anno.py`
 
-Output filenames will match input files. Assembled mitochondrial genome will have suffix `-scaffolds.fa` gene annotation in FASTA and GFF format
+Output filenames will match input files. Assembled mitochondrial genomes will end in `-scaffolds.fa`, genes (including tRNA/rRNA) in `_genes.fasta`, and coordinates in `.gff`.
 
 
 ####tRNA and rRNA databases come from the published MITOS (web server only) datasets

@@ -9,4 +9,8 @@
 
 ####Clone repository
 
-`git clone 
+`git clone https://github.com/n-long/mito_assembly_annotation.git`
+
+####Press mitochondrial gene profiles (this one is formatted for species closely related to Anolis carolinensis
+
+`hmmpress mito_bank.hmm`

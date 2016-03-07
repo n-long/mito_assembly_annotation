@@ -33,7 +33,7 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 `python mito_anno.py`
 
-####Check directory for gene annotation in FASTA and GFF format (output name matches input)
+Output will be in same directory containing gene annotation in FASTA and GFF format (output name matches input)
 
 ####Parallelized version
 

@@ -21,7 +21,7 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 `git clone https://github.com/n-long/mito_assembly_annotation.git`
 
-####Create index for mitochondrial gene profiles (this one is formatted for species closely related to Anolis carolinensis
+####Create index for mitochondrial gene profiles (default is formatted for species closely related to Anolis carolinensis
 
 `hmmpress mito_bank.hmm`
 

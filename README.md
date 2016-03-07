@@ -33,8 +33,8 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 `python mito_anno.py`
 
-Output will be in same directory containing gene annotation in FASTA and GFF format (output name matches input)
+Output filenames will match input files. Assembled mitochondrial genome will have suffix `-scaffolds.fa` gene annotation in FASTA and GFF format
 
-####Parallelized version
+####Parallelized version -- coming soon!
 
-Coming soon!
+Script contains most of the code to get working, however priority is low until thesis is written.

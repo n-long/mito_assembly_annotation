@@ -26,7 +26,7 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 `hmmpress mito_bank.hmm`
 
-####Alternatively, create your own profiles from fasta sequences, one gene per file (can be single-gene sequence or multi-fasta formatted alignment of single gene from multiple species)
+####Alternatively, create your own profiles from fasta sequences, one gene per file (can be single-gene sequence or multi-fasta formatted alignment of single genes from multiple species)
 
 `find . -maxdepth 1 -name "*.fa*" -exec hmmbuild {}_profile.hmm {} \; && cat *profile.hmm > mito_bank.hmm`
 

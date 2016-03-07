@@ -9,8 +9,8 @@
  
 
 ####Add programs to path  
-Check to see if programs are in path. For unix systems:
-
+Check to see if programs are in path.  
+For unix systems:  
 `whereis cap3 abyss-pe fastq_quality_filter hmmbuild`
 
 If any are missing, edit environment file with `nano ~/.bashrc` and add an entry to the directory containing the program  

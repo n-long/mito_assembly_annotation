@@ -9,7 +9,7 @@
  
 
 ####Add programs to path  
-On unix systems, check to see if programs are in path:  
+Check to see if programs are in path. For unix systems:
 
 `whereis cap3 abyss-pe fastq_quality_filter hmmbuild`
 

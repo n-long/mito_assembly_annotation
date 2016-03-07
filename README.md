@@ -30,7 +30,7 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 `find . -maxdepth 1 -name "*.fa*" -exec hmmbuild {}_profile.hmm {} \; && cat *profile.hmm > mito_bank.hmm`
 
-tRNA/rRNA models* are precomputed in the mitfi/ subdirectory along with the [Infernal](http://eddylab.org/infernal/) executable (no PATH adding necessary), and will work for any species without calibration.
+tRNA/rRNA models are precompiled* in the mitfi/ subdirectory along with the [Infernal](http://eddylab.org/infernal/) executable (no PATH adding necessary), and will work for any species without calibration.
 
 ####Run mito_anno.py in directory containing fastq sequence reads (assumes sequences have been de-multiplexed and are free of barcodes/adaptors)
 

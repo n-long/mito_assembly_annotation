@@ -1,4 +1,4 @@
-####Quality trim, filter, assemble, and retrieve gene annotations from mitochondrial sequencing reads in fastq format.
+####Pipeline for mitochondrial sequencing reads. Performs quality trimming and filtering, de novo assembly, and gene annotations in GFF3 and FASTA format.
 
 ######Prerequisites:  
 [Python 2.7](https://www.python.org/download/releases/2.7/)  

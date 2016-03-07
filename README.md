@@ -29,7 +29,7 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 `find . -maxdepth 1 -name "*.fa*" -exec hmmbuild {}_profile.hmm {} \; && cat *profile.hmm > mito_bank.hmm`
 
-####Run mito_anno.py in directory containing de-multiplexed, barcode-free fastq sequence reads 
+####Run mito_anno.py in directory containing fastq sequence reads (assumes sequences have been de-multiplexed and are free of barcodes/adaptors)
 
 `python mito_anno.py`
 

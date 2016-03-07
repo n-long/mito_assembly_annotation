@@ -1,0 +1,6 @@
+MiTFi - mitochondrial tRNA finder v0.1
+#RESULTS (cutoff evalue: 0.001)
+#header	start	stop	score	evalue	AC	AA	model	strand
+124	217	1147	640.29	0.0	---	rna	r_rna.cm	+
+124	1217	2735	1044.45	2.113E-30	---	rna	r_rna.cm	+
+#2 hits

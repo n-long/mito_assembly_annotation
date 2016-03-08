@@ -32,17 +32,17 @@ If any are missing, edit environment file with `nano ~/.bashrc` and add an entry
 
 tRNA/rRNA models are precompiled* in the mitfi/ subdirectory along with the [Infernal](http://eddylab.org/infernal/) executable (no PATH adding necessary), and will work for any species without calibration.
 
-####Run mito_anno.py in directory containing fastq sequence reads (assumes sequences have been de-multiplexed and are free of barcodes/adaptors)
+####Create symlinks to sequence reads inside mito_assembly_annotation directory
+
+`ln -s /path/to/*.fastq mito_assembly_annotation/`
+
+####Run mito_anno.py in mito_assembly_annotation directory (assumes sequences have been de-multiplexed and are free of barcodes/adaptors)
 
 `python mito_anno.py`
 
-Output filenames will match input files. Assembled mitochondrial genomes will end in `-scaffolds.fa`, genes (including tRNA/rRNA) in `_genes.fasta`, and coordinates in `.gff`.
+Output filenames will match input files. Assembled mitochondrial genomes will end in `contigs.fa`, genes (including tRNA/rRNA) in `_genes.fasta`, and coordinates in `.gff`.
 
 
 ####*tRNA and rRNA databases come from the published MITOS (web server only) datasets
 
 Bernt, M., Donath, A., Jühling, F., Externbrink, F., Florentz, C., Fritzsch, G., ... & Stadler, P. F. (2013). MITOS: Improved de novo metazoan mitochondrial genome annotation. Molecular phylogenetics and evolution, 69(2), 313-319.
-
-####Parallelized version -- coming soon!
-
-Script contains most of the code to get working, however priority is low until thesis is written.

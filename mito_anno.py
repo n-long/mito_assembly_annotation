@@ -17,17 +17,21 @@ for element in fastq_files:
         	paired_names=filtered_fastq[i:i+2]
         	name=paired_names[0].split(".")
         	outname=paired_names[0].split("_read")
+        	###This exception is needed for broken paired-end reads
 		try:
         		clean_names=paired_names[0]+"\t"+paired_names[1]
 		except IndexError:
 			continue
         	subprocess.call(['abyss-pe', 'name='+name[0], 'k=64', 'in='+paired_names[0]+'\t'+paired_names[1]])
         	subprocess.call(['cap3', name[0]+'-scaffolds.fa'])
+        	###copy now stores name of assembled genome
         	copy=name[0]+'-scaffolds.fa.cap.contigs'
 		deletion = ('*.adj', '*.ace', '*.path*', '*.fa', '*.dot', '*.singlets', '*.dist', '*.hist', '*.qual', '*.info', '*.links', '*processed*')
+		##delete intermediate assembly files (numerous!)
 		for i in deletion:
 			for j in glob.glob(i): 
 				os.remove(j)
+		###sanity check to see if assembler produced any results -- if not, start loop over with next sample
 		if not os.path.lexists(copy): continue
         	dfamtbl=outname[0]+'.tbl'
         	subprocess.call(['nhmmscan', '--dfamtblout', dfamtbl, '--noali', '--max', 'mito_bank.hmm', copy])
@@ -52,6 +56,7 @@ for element in fastq_files:
 		else:
 			rRNA_out = []
 		for tRNA in tRNA_out:
+			###E-value cut off for HMMER results
 			if int(float(tRNA[4])) <= 0.001:
 				f.write(tRNA[0] + '\t' + 'MiTFi' + '\t' + 'CDS' + '\t' + tRNA[1] + '\t' + tRNA[2] + '\t' + tRNA[3] + '\t' + tRNA[8] + \
 				'\t' + '.' + '\t' + 'trn' + tRNA[6] + '(' + tRNA[5].replace('U','T') + ')' + '\n')
@@ -59,6 +64,7 @@ for element in fastq_files:
         	        f.write(rRNA[0] + '\t' + 'MITOS' + '\t' + 'CDS' + '\t' + rRNA[1] + '\t' + rRNA[2] + '\t' + rRNA[3] + '\t' + rRNA[8] + \
 			'\t' + '.' + '\t' + 'rrn' + rRNA[6] + '(' + rRNA[5].replace('U','T') + ')' + '\n')
         		for elem in GFF_out:
+        			###Checks results for 90% match length of database sequence
                 		if abs(int(elem[10])-int(elem[9])) >= (0.90 * int(elem[13])):
                         		f.write(elem[2] + '\t' + 'GenBank' + '\t' + 'CDS' + '\t' + elem[9] + '\t' + elem[10] + '\t' + elem[5] + '\t' + elem[8] + '\t.' + '\t' + elem[0] + '\n')
                         		with open(name[0]+'_genes.fasta', 'a') as fastaout:
@@ -67,6 +73,7 @@ for element in fastq_files:
                                         		index = ''.join([item.replace('\n','') for item in lines])
                                         		index1=int(elem[9])-1
                                         		index2=int(elem[10])-1
+                                        		###start/end coordinates are reversed if on minus strand. this switches coordinates and reverse complements.
                                         		if elem[8] == '-':
                                                 		revcom = lambda x: ''.join([{'A':'T','C':'G','G':'C','T':'A'}[B] for B in x][::-1])
                                                 		fastaout.write(">"+elem[0]+'\n' + revcom(index[index2:index1]) + '\n')
